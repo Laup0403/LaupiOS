@@ -1,0 +1,15 @@
+.className {
+	property1: 5;
+	property2: "16px";
+	property3: "hidden";
+}
+
+.closebutton {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  background-color: #EC6B5E;
+  border-radius: 16px;
+  border: solid 1px rgba(0, 0, 0, 0.25);
+  margin-left: 6px;
+}
