@@ -2,26 +2,24 @@
 <html>
 
     <head>
-      <script type="module" src="./script.js"></script>
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
 
-  <body style="color: goldenrod;background-color: cadetblue; background-image: url(./vinland-saga.gif); background-size: cover; height: 100vh;">
+  <body style="color: darkslategrey;background-color: cadetblue; background-image: url(./river.gif); background-size: cover; height: 100vh;">
 
       <div class="window" id="welcome" style="background-color: whitesmoke; border: 4mm solid aqua; border-radius: 20px; padding: 14px; width: fit-content; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
 
-          <p id="welcomeheader" style="margin-top: 0px;">
-              🖑
+          <p style="display: flex; justify-content: end; align-items: start;">
+            <a class="closebutton" id="welcomeclose">✖</a>
+            <!--<a class="headerbutton" id = "welcomeheader" style="padding-right: 10px;">■</a> -->
           </p>
-          <p id="welcomeclose"> Close</p>
-         	<p style="cursor: pointer" id="welcomeopen">LaupiOS</p>
 
-          <h1 style="color:black">Welcome to my Webite!</h1>
-          >I am Laupi_oida and this is my (very cool) Website!<br>
+          <h1 style="color:black">Welcome to LaupiOS!</h1>
+          <p>The calmer Site.<br>
           I am a German boy who loves Backfisch(a northern German dish)<br>
         and mountains.<br>
             My favorite song is <a href="https://youtu.be/gTMWO7ovAXk?si=yUcn8OkukymiHDyA">Chandelier by Will Paquin</a> <br>
-            I mostly programm games.</>
+            I mostly programm games.</p>
 
             <img src="./Backfisch.jpg" style="width: 9cm; border-radius: 10px;">
         <p>This is a Backfisch I photographed! <br>(It was'nt very tasty tbh) </p>
@@ -36,10 +34,10 @@
       </div>
 
       <!-- topbar -->
-      <div style="display: flex; justify-content: space-between; color: black; background-color: rgba(43, 128, 250, 0.5); border-radius: 15px; font-weight: bold; font-family: sans-serif; max-height: 25px; ">
+      <div style="display: flex; justify-content: space-between; color: black; background-color: seagreen; border-radius: 15px; font-weight: bold; font-family: sans-serif; max-height: 25px; ">
 
           <p style="margin-left: 15px; transform: translate(0,-15px)">
-                LaupiOS v 0.2
+                LaupiOS v 0.3
           </p>
 
           <p id="timeElement" style="transform: translate(0,-15px);">
@@ -50,6 +48,24 @@
           </p>
 
       </div>
+
+      <div class="desktopApps" id="desktopApps">
+
+          <div onclick="handleIconTap(this)" style="cursor: pointer; display: flex; align-items: start; justify-content: space-between;">
+              <img src=" Notes.png" style="width: 32px; height: 32px;">
+              <div class="selected" style="color: gray;"></div>
+          </div>
+
+      </div>
+
+      <!--Notes -->
+      <div class="window" id="notes" style="display: none;">
+         <div class="closebutton" id="notesclose">✖</div>
+          <div class="selected" style="">
+          <div>
+
+      </div>
+
   </body>
 
   <script src="script.js"></script>

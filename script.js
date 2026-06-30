@@ -3,6 +3,7 @@ setInterval(updateTime, 1000);
 
 // Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
+dragElement(document.getElementById("notes"))
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -56,24 +57,39 @@ function dragElement(element) {
   }
 }
 
-var welcomeScreen = document.querySelector("#welcome")
-
-function closeWindow(element) {
-  element.style.display = "none"
-}
-
 function openWindow(element) {
   element.style.display = "flex"
 }
 
-var welcomeScreenClose = document.querySelector("#welcomeclose")
+function closeWindow(window, closebutton) {
+  var screen = document.querySelector("#" + window)
+  var screenClose = document.querySelector("#" + closebutton)
+  screenClose.addEventListener("click", function () {
+    screen.style.display = "none"
+  })
+}
 
-var welcomeScreenOpen = document.querySelector("#welcomeopen")
+closeWindow("welcome", "welcomeclose")
 
-welcomeScreenClose.addEventListener("click", function () {
-  closeWindow(welcomeScreen);
-});
+closeWindow("notes", "notesclose")
 
-welcomeScreenOpen.addEventListener("click", function() {
-  openWindow(welcomeScreen);
-});
+var selectedIcon = undefined
+
+function selectIcon(element) {
+  element.classList.add("selected");
+  selectedIcon = element
+}
+
+function deselectIcon(element) {
+  element.classList.remove("selected");
+  selectedIcon = undefined
+}
+
+function handleIconTap(element) {
+  if (element.classList.contains("selected")) {
+    deselectIcon(element)
+    openWindow(document.querySelector("#notes"))
+  } else {
+    selectIcon(element)
+  }
+}

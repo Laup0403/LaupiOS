@@ -1,0 +1,8 @@
+welcomeScreenOpen.addEventListener("click", function() {
+  openWindow(welcomeScreen);
+});
+var welcomeScreenOpen = document.querySelector("#welcomeopen")
+
+function closeWindow(element) {
+  element.style.display = "none"
+}
