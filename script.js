@@ -44,11 +44,10 @@ var notescontent = [{
   date: "06.07.26",
   content: `
   <h2> Future plans:</h2>
-  <p>-a terminal <br><br>
-      -games <br><br>
-      -a better taskbar <br><br>
-      -a file manager <br><br>
-      -a browser
+  <p>-be happy in the forest<br><br>
+  -code in the forest<br><br>
+  -live in the forest<br><br>
+  -find a river in the forest<p>
   `
 },
 {
