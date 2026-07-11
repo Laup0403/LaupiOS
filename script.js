@@ -1,13 +1,17 @@
-//Uhr
+//////////////////////////////////
+// Hier müssen die window namen //
+//////////////////////////////////
 
-function updateTime() { document.querySelector("#timeElement").innerHTML = new Date().toLocaleString(); }
-setInterval(updateTime, 1000);
+intializeWindow("notes")
+intializeWindow("welcome")
+intializeWindow("calls")
 
 //Variablen
 
 var biggestIndex = 1;
 var topBar = document.querySelector("#top")
 var selectedIcon = undefined
+var currentNumber = "‎ "
 var notescontent = [{
   title: "Welcome",
   date: "04.07.26",
@@ -53,8 +57,7 @@ var notescontent = [{
   content: `
     <p contenteditable="True">
     This is very serius:<br>
-    I live on Earth
-    </p>
+    never call the 12345    </p>
     `
 }
 ]
@@ -145,10 +148,10 @@ function deselectIcon(element) {
   selectedIcon = undefined
 }
 
-function handleIconTap(element) {
+function handleIconTap(element, screen) {
   if (element.classList.contains("selected")) {
     deselectIcon(element)
-    openWindow(document.querySelector("#notes"))
+    openWindow(screen)
   } else {
     selectIcon(element)
   }
@@ -172,14 +175,17 @@ function handleWindowTap(element) {
 //alles auf einmal initialisieren
 
 function intializeWindow(windowName) {
-  var screen = document.querySelector("#" + windowName)
-  addWindowTapHandling(screen)
-  closeWindow(windowName, windowName + "close")
-  dragElement(screen)
+  var screen = document.querySelector("#" + windowName);
+  addWindowTapHandling(screen);
+  closeWindow(windowName, windowName + "close");
+  dragElement(screen);
+
+  var icon = document.querySelector("#" + windowName + "Icon")
+  if (icon != null) {
+    icon.addEventListener("click", () => handleIconTap(icon, screen))
+  }
 }
 
-intializeWindow("notes")
-intializeWindow("welcome")
 
 //Notes app
 
@@ -208,4 +214,100 @@ function addToSideBar(index) {
 
 for (let i = 0; i < notescontent.length; i++) {
   addToSideBar(i)
+}
+
+//Uhr
+
+function updateTime() { document.querySelector("#timeElement").innerHTML = new Date().toLocaleString(); }
+setInterval(updateTime, 1000);
+
+//Phoneapp
+
+function addNumber(number) {
+  if (currentNumber == "‎ ") {
+    currentNumber = "";
+  };
+
+  currentNumber = currentNumber + number;
+
+  if (currentNumber.length >= 6) {
+    clearNumber();
+    currentNumber = "";
+    currentNumber = currentNumber + number;
+  }
+
+  checkNumber()
+
+  showNumber()
+};
+
+function clearNumber() {
+  currentNumber = "‎ "
+  showNumber()
+};
+
+function showNumber() {
+  callDisplay = document.createElement("div");
+  callDisplay.innerHTML = `<p>${currentNumber}</p>`;
+  var callNumber = document.querySelector("#callNumber");
+  callNumber.innerHTML = "";
+  callNumber.appendChild(callDisplay);
+  console.log(currentNumber);
+};
+showNumber();
+
+function checkNumber() {
+  if (currentNumber == "11239") {
+    console.log("wildschwein angerufen");
+    boarAudio = document.getElementById("boarAudio");
+    boarAudio.play();
+  }
+
+  if (currentNumber == "98273") {
+    console.log("igel angerufen");
+    hedgehogAudio = document.getElementById("hedgehogAudio");
+    hedgehogAudio.play();
+  }
+
+  if (currentNumber == "48270") {
+    console.log("eichhörnchen angerufen");
+    squirrelAudio = document.getElementById("squirrelAudio");
+    squirrelAudio.play();
+  }
+
+  if (currentNumber == "38198") {
+    console.log("fuchs angerufen");
+    foxAudio = document.getElementById("foxAudio");
+    foxAudio.play();
+  }
+
+  if (currentNumber == "24955") {
+    console.log("wolf angerufen");
+    wolfAudio = document.getElementById("wolfAudio");
+    wolfAudio.play();
+  }
+
+  if (currentNumber == "11111") {
+    console.log("callcenter angerufen");
+    callcenterAudio = document.getElementById("callcenterAudio");
+    callcenterAudio.play();
+  };
+
+  if (currentNumber == "29312") {
+    console.log("hirsch angerufen");
+    deerAudio = document.getElementById("deerAudio");
+    deerAudio.play();
+  }
+
+  if (currentNumber == "12345") {
+    console.log("john pork angerufen");
+    johnporkVideo = document.getElementById("johnporkVideo");
+    johnporkScreen = document.getElementById("johnpork")
+    johnporkScreen.style.display = "flex";
+    johnporkVideo.play();
+    johnporkVideo.addEventListener('ended', function () {
+      johnporkScreen.style.display = "none";
+    })
+
+  }
 }

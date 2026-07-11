@@ -5,33 +5,7 @@
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
 
-  <body style="color: darkslategrey;background-color: cadetblue; background-image: url(./river.gif); background-size: cover; height: 100vh;">
-
-    <div class="window" id="welcome" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 720px; font-family: 'Times New Roman';">
-
-        <div class="headerbutton" id = "welcomeheader" style="display: flex; width: 100%; padding-bottom: 3px;">
-            <div class="close-button" id="welcomeclose" style="margin-right: 10px;">✖</div>
-            Welcome
-            </div>
-        <div style="margin: 6px; background-color: mediumseagreen; border-radius: 20px; padding: 5px; height: 500px; overflow-y: scroll;">
-            <div style="text-align: center; padding-top: 100px;">
-                <h1 style="color:black; font-size: 90px;">Welcome in the Woods!</h1>
-                <p style="color: darkslategray;">| Scroll down for more Infos |</p>
-                <p style="color:black; font-size: 25px;"> <br><br><br>
-                    This is ForestOS,<br>
-                    a project by Laupi_oida<br><br><br>
-                    <img src="Backfisch.jpg" style="width: 600px; border-radius: 20px;"><br>
-                    and this is a Backfisch.<br>
-                    It doesn't live in the forest,<br>
-                    but it is very tasty.<br><br><br></p>
-                <h2 style="color:black; font-size: 25px;">Why ForestOS?</h2>
-                <p style="color:black; font-size: 25px;">I searched an idea and saw<br>
-                    a photo of a forest.<br>
-                    No crazy story<br>
-                </p>
-            </div>
-        </div>
-    </div>
+  <body style="color: darkslategrey;background-color: cadetblue; background-image: url(./photos/river.gif); background-size: cover; height: 100vh;">
 
       <!-- topbar -->
       <div id="top" style="display: flex; justify-content: space-between; color: black; background-color: seagreen; border-radius: 15px; font-weight: bold; font-family: sans-serif; max-height: 25px; ">
@@ -45,12 +19,19 @@
 
           <p style="margin-right: 15px; transform: translate(0,-15px);">
               Whats an high tier programmer to an idiot?
-          </p></div>
+          </p>
+      </div>
 
-      <div class="desktopApps" id="desktopApps">
+      <!-- dock -->
+      <div class="desktopApps" id="desktopApps" style="display: flex;">
 
-          <div onclick="handleIconTap(this)" style="cursor: pointer; display: flex; align-items: start; justify-content: space-between;">
+          <div id="notesIcon" style="padding-right: 10px;cursor: pointer; display: flex; align-items: start; justify-content: space-between;">
               <img src=" Notes.png" style="width: 32px; height: 32px;">
+              <div class="selected" style="color: gray;"></div>
+          </div>
+
+          <div id="callsIcon" style="cursor: pointer; display: flex; align-items: start; justify-content: space-between;">
+              <img src="Callcenter.png" style="width: 32px; height: 32px;">
               <div class="selected" style="color: gray;"></div>
           </div>
 
@@ -71,6 +52,129 @@
             <div id="notesContent" style="overflow-y: scroll;">
             </div>
         </div>
+    </div>
+
+    <!-- Welcome -->
+    <div class="window" id="welcome" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 720px; font-family: 'Times New Roman';">
+
+        <div class="headerbutton" id = "welcomeheader" style="display: flex; width: 100%; padding-bottom: 3px;">
+            <div class="close-button" id="welcomeclose" style="margin-right: 10px;">✖</div>
+            Welcome
+            </div>
+        <div style="margin: 6px; background-color: mediumseagreen; border-radius: 20px; padding: 5px; height: 500px; overflow-y: scroll;">
+            <div style="text-align: center; padding-top: 100px;">
+                <h1 style="color:black; font-size: 90px;">Welcome in the Woods!</h1>
+                <p style="color: darkslategray;">| Scroll down for more Infos |</p>
+                <p style="color:black; font-size: 25px;"> <br><br><br>
+                    This is ForestOS,<br>
+                    a project by Laupi_oida<br><br><br>
+                    <img src="./photos/Backfisch.jpg" style="width: 600px; border-radius: 20px;"><br>
+                    and this is a Backfisch.<br>
+                    It doesn't live in the forest,<br>
+                    but it is very tasty.<br><br><br></p>
+                <h2 style="color:black; font-size: 25px;">Why ForestOS?</h2>
+                <p style="color:black; font-size: 25px;">I searched an idea and saw<br>
+                    a photo of a forest.<br>
+                    No crazy story<br>
+                </p>
+                <h2 style="color:black; font-size: 25px;">Important Info</h2>
+                <p style="color:black; font-size: 25px;">The infos on this Website are <br>
+                    completly from my knowledge<br>
+                    and if something isn't in your forest,<br>
+                    it's because you're not in my main forest.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phone -->
+    <div class="window" id="calls" style="display: none; width: fit-content; color: black;">
+
+        <div class="headerbutton" id = "callsheader" style="display: flex; width: 100%; padding-bottom: 3px;">
+            <div class="closebutton" id="callsclose" style="margin-right: 10px;">✖</div>
+            Phone
+        </div>
+
+        <div style="margin: 6px; background-color: mediumseagreen; border-radius: 20px; padding: 5px; height: 550px; overflow-y: hide; display: flex;">
+
+            <div style="margin-left: 10px; margin-top: 10px;cursor: pointer; background-color: bisque; width: 720px; margin-right: 20px; padding: 16px; border-radius: 16px; width: 120px;">
+                <h3>Phone Book</h3>
+                <div style="padding-bottom: 10px;">
+                    <strong>boar:</strong><br>
+                    11239
+                    <audio id="boarAudio" src="./audio/boar.mp3"></audio>
+                </div>
+                <div style="padding-bottom: 10px;">
+                    <strong>hedgehog:</strong><br>
+                    98273
+                    <audio id="hedgehogAudio" src="./audio/hedgehog.mp3"></audio>
+                </div>
+                <div style="padding-bottom: 10px;">
+                    <strong>squirrel:</strong><br>
+                    48270
+                    <audio id="squirrelAudio" src="./audio/squirrel.mp3"></audio>
+                </div>
+                <div style="padding-bottom: 10px;">
+                    <strong>fox:</strong><br>
+                    38198
+                    <audio id="foxAudio" src="./audio/fox.mp3"></audio>
+                </div>
+                <div style="padding-bottom: 10px;">
+                    <strong>wolf:</strong><br>
+                    24955
+                    <audio id="wolfAudio" src="./audio/wolf.mp3"></audio>
+                </div>
+                <div style="padding-bottom: 10px;">
+                    <strong>callcenter:</strong><br>
+                    11111
+                    <audio id="callcenterAudio" src="./audio/callcenter.mp3"></audio>
+                </div>
+                <div style="padding-bottom: 10px;">
+                    <strong>deer:</strong><br>
+                    29312
+                    <audio id="deerAudio" src="./audio/deer.mp3"></audio>
+                </div>
+            </div>
+
+            <div style="width: 500px;">
+                <div id="callNumber" style="display: flex;text-decoration: underline; font-family: sans-serif; font-size: 60px; font-weight: bold; margin-left: 150px; margin-top: 0px;"></div>
+
+                <div style="font-size: 50px; margin-top: 0px;">
+
+                    <div style="display: flex; justify-content: space-evenly; margin-bottom: 10px;">
+                        <div onclick='addNumber("1")' class="numpad" style="cursor: pointer;">1</div>
+                        <div onclick='addNumber("2")' class="numpad" style="cursor: pointer;">2</div>
+                        <div onclick='addNumber("3")' class="numpad" style="cursor: pointer;">3</div>
+                    </div>
+
+                    <div style ="display: flex; justify-content: space-evenly; margin-bottom: 10px;">
+                        <div onclick='addNumber("4")' class="numpad" style="cursor: pointer;">4</div>
+                        <div onclick='addNumber("5")' class="numpad" style="cursor: pointer;">5</div>
+                        <div onclick='addNumber("6")' class="numpad" style="cursor: pointer;">6</div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-evenly; margin-bottom: 10px;">
+                        <div onclick='addNumber("7")' class="numpad" style="cursor: pointer;">7</div>
+                        <div onclick='addNumber("8")' class="numpad" style="cursor: pointer;">8</div>
+                        <div onclick='addNumber("9")' class="numpad" style="cursor: pointer;">9</div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-evenly; margin-bottom: 10px;">
+                        <div onclick='clearNumber()' class="numpad" style="cursor: pointer;">X</div>
+                        <div onclick='addNumber(0)' class="numpad" style="cursor: pointer;">0</div>
+                        <div onclick='console.log("Ich bin ken callcenter. weiste bescheid")' class="numpad" style="cursor: pointer;">#</div>
+                    </div>
+
+                    <audio src="./wolf.mp3"></audio>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--John Pork -->
+    <div id="johnpork" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #000000; z-index: 99999; display: none; justify-content: center; align-items: center;">
+        <video id="johnporkVideo" src="./audio/johnny.mp4" style="height: 1000px;"></video>
     </div>
 
 </body>
