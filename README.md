@@ -14,6 +14,10 @@ Go check it out now at https://laup0403.github.io/ForestOS/
 -🥚 an extremly difficult to find easter egg <br>
 -🐷 a pig <br>
 
-### AI usage
+## Credits:
+-Audio from Pixabay and Tiktok 
+-The secret Video: https://www.youtube.com/watch?v=EcsU-9OpNMY
+
+## AI usage:
 I used AI but just for one error that I just couldn't fix and <br>
 I had to rewrite the whole code to fix this error.
