@@ -13,11 +13,23 @@ Go check it out now at https://laup0403.github.io/ForestOS/
  chat with animals <br>
 -🥚 an extremly difficult to find easter egg <br>
 -🐷 a pig <br>
+-💻 a terminal<br>
 
-## Credits:
+## Terminal Commands:
+-help: prints available commands<br>
+-clear: clears the terminal<br>
+-echo: prints Text<br>
+-forestfetch: Prints out Infos about the system (ofc the best command)<br>
+-nutnotes: opens Nutnotes<br>
+-thincanphone: opens Thin Can Phone<br>
+-welcome: opens Welcome<br>
+-coolgame: does nothing because I have no cool games😥<br>
+-whoIsTheBestProgrammer: prints the best programmer<br>
+
+
+### Credits:
 -Audio from Pixabay and Tiktok <br>
 -The secret Video: https://www.youtube.com/watch?v=EcsU-9OpNMY
 
-## AI usage:
-I used AI but just for one error that I just couldn't fix and <br>
-I had to rewrite the whole code to fix this error.
+### AI usage:
+Some Bugfixes I was to dumb for.
