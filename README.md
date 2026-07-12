@@ -13,7 +13,7 @@ Go check it out now at https://laup0403.github.io/ForestOS/
  chat with animals <br>
 -🥚 an extremly difficult to find easter egg <br>
 -🐷 a pig <br>
--💻 a terminal<br>
+-💻 Forestbreaker the crazy cool terminal with barkshell<br>
 
 ## Terminal Commands:
 -help: prints available commands<br>
