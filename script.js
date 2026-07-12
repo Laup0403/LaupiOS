@@ -5,6 +5,7 @@
 intializeWindow("notes")
 intializeWindow("welcome")
 intializeWindow("calls")
+intializeWindow("term")
 
 //Variablen
 
@@ -310,3 +311,84 @@ function checkNumber() {
 
   }
 }
+
+// term
+
+function checkPromt() {
+  inputScreen = document.querySelector("#termInput");
+
+  inputScreen.addEventListener('keydown', function (keyDown) {
+    if (keyDown.key == 'Enter') {
+      var commandLine = inputScreen.value.trim();
+      if (commandLine !== '' ) {
+        handlePromt(commandLine);
+        inputScreen.value = '';
+      }
+    }
+  })
+};
+
+function handlePromt(line) {
+
+  var outputScreen = document.querySelector("#termOutput")
+
+  printToTerminal(`<span class="prompt"><strong>user@ForestOS:</strong> </span> ${line}`);
+  var parts = line.split(' ');
+  var command = parts[0];
+  var args = parts.slice(1);
+
+  //Hier müssen neue Commands hin
+
+  switch (command) {
+    case 'help':
+      printToTerminal('Available commands:<br> help, clear, echo, forestfetch, matrix<br>more infos available at <a href="https://github.com/Laup0403/LaupiOS">https://github.com/Laup0403/LaupiOS</a>');
+      break;
+    case 'clear':
+      outputScreen.innerHTML = '';
+      break;
+    case 'echo':
+      printToTerminal(args.join(' '));
+      break;
+    case 'forestfetch':
+      printToTerminal('<b>OS:</b> ForestOS 1.1<br><b>Shell:</b> bark<br><b>User:</b> user<br><b>CPU: </b>Intel Ryzen 5500<br><b>GPU: </b>Lidl Geforce Intergrated');
+      break;
+    case 'nutnotes':
+      openWindow(document.querySelector("#notes"));
+      break;
+    case 'thincanphone':
+      openWindow(document.querySelector("#calls"));
+      break;
+    case 'welcome':
+      openWindow(document.querySelector("#welcome"));
+      break;
+    case 'coolgame':
+      printToTerminal('Comming soon');
+      break;
+    case 'whoIsTheBestProgrammer':
+      printToTerminal('Of course Laupi_oida.');
+      break;
+    default:
+      printToTerminal(`bark: command not found: ${command}`);
+  }
+};
+function love.draw()
+	love.graphics.printf("Hello World!", 0, 300, love.graphics.getWidth(), 'center')
+	love.graphics.printf(
+		string.format("Time: %f - FPS: %f\nOS: %s Ver: %d.%d.%d\nScreen: %d x %d",
+			love.timer.getTime(), love.timer.getFPS(),
+			love.system.getOS(), love._version_major, love._version_minor, love._version_revision,
+			love.graphics.getWidth(), love.graphics.getHeight()
+		), love.graphics.getWidth() - 305, 3, 300, 'right')
+end
+
+function printToTerminal(text) {
+  var outputScreen = document.querySelector("#termOutput")
+  var  p = document.createElement('p');
+  p.innerHTML = text;
+  outputScreen.appendChild(p);
+
+  // Automatisch nach unten scrollen, wenn Text dazukommt
+  const windowEl = document.querySelector("#termScreen");
+  windowEl.scrollTop = windowEl.scrollHeight;
+};
+checkPromt();

@@ -11,7 +11,7 @@
       <div id="top" style="display: flex; justify-content: space-between; color: black; background-color: seagreen; border-radius: 15px; font-weight: bold; font-family: sans-serif; max-height: 25px; ">
 
           <p style="margin-left: 15px; transform: translate(0,-15px)">
-                ForestOS v 1.0
+                ForestOS v 1.1
           </p>
 
           <p id="timeElement" style="transform: translate(0,-15px);">
@@ -30,8 +30,13 @@
               <div class="selected" style="color: gray;"></div>
           </div>
 
-          <div id="callsIcon" style="cursor: pointer; display: flex; align-items: start; justify-content: space-between;">
+          <div id="callsIcon" style="cursor: pointer; display: flex; align-items: start; justify-content: space-between; padding-right: 10px;">
               <img src="Callcenter.png" style="width: 32px; height: 32px;">
+              <div class="selected" style="color: gray;"></div>
+          </div>
+
+          <div id="termIcon" style="cursor: pointer; display: flex; align-items: start; justify-content: space-between;">
+              <img src="Term.png" style="width: 32px; height: 32px;">
               <div class="selected" style="color: gray;"></div>
           </div>
 
@@ -175,6 +180,24 @@
     <!--John Pork -->
     <div id="johnpork" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #000000; z-index: 99999; display: none; justify-content: center; align-items: center;">
         <video id="johnporkVideo" src="./audio/johnny.mp4" style="height: 1000px;"></video>
+    </div>
+
+    <!-- Terminal -->
+    <div id="term" class="window" style="width: 600px;">
+
+        <div class="headerbutton" id = "termheader" style="display: flex; width: 100%; padding-bottom: 3px;">
+            <div class="close-button" id="termclose" style="margin-right: 10px;">✖</div>
+            ForestBreaker
+        </div>
+
+        <div id="termScreen" style="margin: 6px; background-color: mediumseagreen; border-radius: 20px; padding: 5px; height: 500px; overflow-y: scroll; padding: 10px;">
+            <div id="termOutput"> ForestBreaker - the crazy cool terminal<br>‎  </div>
+            <div>
+                <span><strong>user@ForestOS></bt></strong> </span>
+                <input type="text" id="termInput" autofocus autocomplete="off" style="background-color: mediumseagreen; border: none; outline: none; color: darkslategrey; font-size: 14px;">
+            </div>
+        </div>
+
     </div>
 
 </body>
